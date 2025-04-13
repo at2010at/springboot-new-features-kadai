@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>レビュー編集</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1 class="text-center">レビュー編集</h1>
+
+    <form th:action="@{/reviews/edit/{id}(id=${review.id})}" th:object="${review}" method="post">
+        <div>
+            <label for="reviewComment">コメント</label><br>
+            <textarea id="reviewComment" th:field="*{reviewComment}" rows="5" cols="50"></textarea>
+        </div>
+        <div>
+            <label for="star">評価（1〜5）</label><br>
+            <input type="number" id="star" th:field="*{star}" min="1" max="5" />
+        </div>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">保存</button>
+        </div>
+    </form>
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>レビュー編集</title>-->
+<!--    <link rel="stylesheet" th:href="@{/css/style.css}">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1 class="text-center">レビュー編集</h1>-->
+
+<!--    <form th:action="@{/reviews/edit/{id}(id=${review.id})}" method="post">-->
+<!--	<form th:action="${review != null} ? @{/reviews/edit/{id}(id=${review.id})} : ''" method="post">-->
+<!--		<form th:action="@{/reviews/edit/{id}(id=${review.id})}" method="post">-->
+<!--        <div>-->
+<!--            <label for="reviewComment">コメント</label><br>-->
+<!--            <textarea id="reviewComment" name="reviewComment" rows="5" cols="50"-->
+<!--                      th:text="${review.reviewComment}"></textarea>-->
+<!--            <textarea id="reviewComment" name="reviewComment" rows="5" cols="50"-->
+<!--          				th:field="*{reviewComment}"></textarea>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label for="star">評価（1〜5）</label><br>-->
+<!--            <input type="number" id="star" name="star" min="1" max="5" th:value="${review.star}" />-->
+<!--            <input type="number" id="star" name="star" min="1" max="5" th:field="*{star}" />-->
+
+<!--        </div>-->
+<!--        <div class="mt-3">-->
+<!--            <button type="submit" class="btn btn-primary">保存</button>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="https://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>レビュー編集</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="container">-->
+<!--        <h2>レビューの編集</h2>-->
+        
+<!--        <form th:action="@{/houses/{id}/reviews/edit/{id}(id=${review.id})}" method="post">-->
+<!--        <form th:action="@{/edit/{id}(id=${review.id})}" method="post">-->
+<!--            <div class="form-group">-->
+<!--                <label for="reviewComment">コメント</label>-->
+<!--                <textarea id="reviewComment" name="reviewComment" class="form-control" th:value="${review.reviewComment}" required></textarea>-->
+<!--            </div>-->
+            
+<!--            <div class="form-group">-->
+<!--                <label for="star">評価</label>-->
+<!--                <select id="star" name="star" class="form-control" th:value="${review.star}" required>-->
+<!--                    <option value="1">★</option>-->
+<!--                    <option value="2">★★</option>-->
+<!--                    <option value="3">★★★</option>-->
+<!--                    <option value="4">★★★★</option>-->
+<!--                    <option value="5">★★★★★</option>-->
+<!--                </select>-->
+<!--            </div>-->
+
+<!--            <button type="submit" class="btn btn-primary mt-3">保存する</button>-->
+<!--        </form>-->
+
+<!--        <a href="#" th:href="@{/houses/{houseId}/reviews(id=${house.id})}">レビュー一覧に戻る</a>-->
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->
